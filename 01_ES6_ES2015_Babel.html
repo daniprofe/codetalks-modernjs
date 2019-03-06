@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Modern Javascript I: ES6/ES2015 & Babel</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <link rel="stylesheet" href="mycss/01.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>Modern Javascript I: ES6/ES2015 & Babel</h1>
+					<h2>by <a href="mailto:dani@on4u.es">Daniprofe</a></h2>
+				</section>
+
+				<section>
+
+					<!-- Javascript vs ECMAScript, versions timeline... -->
+
+					<section data-background="img/01/evolution_of_javascript.jpeg">
+					</section>
+
+					<section data-background="img/01/confused.jpeg">
+
+						<h3>What-the-hell am I using?</h3>
+						<h3>Javascript or ES?</h3>
+
+                        <aside class="notes" data-markdown>
+
+							[A Brief History of Javascript](https://auth0.com/blog/a-brief-history-of-javascript/)
+
+							Brendan Eich developed Javascript in only 10 days for Netscape. It was first released on Netscape Navigator 2.0, released on May 1995
+
+							It was firstly named 'Mocha', soon changed to 'LiveScript' and finally to 'Javascript'
+
+							[ECMA](http://www.ecma-international.org) means 'European association for standardizing information and communication systems'
+
+                            Netscape submitted Javascript to ECMA for standarization on november 1996. The standard was named ECMA-262, aka ECMAScript, and is managed by the TC-39 comitee
+
+							The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
+
+							[List of EMCASCript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+							[JavaScript Versions: ES6 and Before](https://www.codecademy.com/articles/javascript-versions)
+
+						</aside>
+
+					</section>
+
+					<section>
+						<img class="stretch" src="img/01/es_timeline_02.png" />
+					</section>
+
+					<section data-background="img/01/es5_and_es6.jpeg">
+						<h2>ES6 / ES2015</h2>
+						<h3>The 'biggest' release since 2009 (ES5)</h3>
+					</section>
+
+					<section data-background="img/01/sugar.jpg" class="sugar-background">
+						<div class="two-columns">
+
+							<div>
+								<h2>'Big' features</h2>
+								<ul>
+									<li>Modules</li>
+									<li>Promises</li>
+								</ul>
+							</div>
+
+							<div>
+								<h2>'Syntactic sugar'</h2>
+								<ul>
+									<li>let and const</li>
+									<li>arrow functions</li>
+								    <li>default parameters</li>
+									<li>rest operator</li>
+								    <li>spread operator</li>
+								    <li>destructuring</li>
+								    <li>template strings</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h3>OK, then... can I use it ES6 just now?</h3>
+						<h4>Not an easy answer, dude!</h4>
+						<img class="stretch" src="img/01/es6_compatibility_table.png">
+						<div>
+						    <a class="image-baseline-ref" href="http://kangax.github.io/compat-table/es6/">ES6 compatibility table</a>
+					  </div>
+					</section>
+
+					<section id='slide-transpiler-definition'>
+						<h1>Do you know what means 'transpile'?</h1>
+						<dl>
+							<dt>Transpiler</dt>
+                            <dd>A source-to-source compiler, transcompiler or transpiler[1] is a type of compiler that takes the source code of a program written in one programming language as its input and produces the equivalent source code in another programming language.</dd>
+					    </dl>
+					</section>
+
+					<section data-background="img/01/babel.jpg">
+					</section>
+
+          <!--
+					<section data-background="img/01/linus_torvalds.jpg">
+						<h1>Talk is cheap<br>Show me the code</h1>
+					</section>
+				  -->
+
+				</section>
+
+				<section>
+
+					<section data-background="img/01/boxing.jpg">
+						<div style="color: #117929;">
+						  <h1 style="display: inline;">var</h1> <h3 style="display: inline;">vs</h3> <h1 style="display: inline;">let</h1>
+					  </div>
+					</section>
+
+
+					<section>
+						<h4>What will be shown on console?</h4>
+						<pre><code data-trim class="javascript">
+var counter = 10;
+
+// A lot of complex operations...
+
+var result = counter * 2;
+
+// More complex things happen...
+
+rsult = result * 2;
+
+// And finally we show the result!
+
+console.log(result);
+						</code></pre>
+
+						<aside class="notes">
+<pre style="font-size: 0.6em;">
+(function () {
+
+	"use strict";
+
+	var counter = 10;
+
+	// A lot of complex operations...
+
+	var result = counter * 2;
+
+	// More complex things happen...
+
+	rsult = result * 2;
+
+	// And finally we show the result!
+
+	console.log(result);
+
+}());
+</pre>
+						</aside>
+
+					</section>
+
+					<section data-background="img/01/strict.jpg">
+
+						<h1>Let's be strict!</h1>
+						<pre><code data-trim class="javascript">
+"use strict";
+						</code></pre>
+
+					</section>
+
+					<section data-background="img/01/scope.png">
+
+						<h2>scope</h2>
+
+						<h4>What will be shown on console?</h4>
+
+						<pre><code data-trim class="javascript">
+var globalVar = 'global';
+
+function myFunction() {
+    var localVar = 'local';
+	  console.log('Inside function: ' + globalVar);
+	  console.log('Inside function: ' + localVar);
+}
+
+console.log('Outside function: ' + globalVar);
+console.log('Outside function: ' + localVar);
+						</code></pre>
+
+					</section>
+
+					<section data-background="img/01/shadow.jpg">
+
+						<h2>shadowing</h2>
+
+						<h4>What will be shown on console?</h4>
+
+						<pre><code data-trim class="javascript">
+var myVar = 10;
+
+function myFunction() {
+
+    var myVar = 20;
+		console.log('Inside function: ' + myVar);
+
+}
+
+myFunction();
+
+console.log('Outside function: ' + myVar);
+						</code></pre>
+
+					</section>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

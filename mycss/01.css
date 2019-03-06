@@ -1,0 +1,32 @@
+.reveal h1, .reveal h2, .reveal h3,
+.reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+}
+
+.image-baseline-ref {
+  font-size: 0.4em;
+}
+
+section aside.notes pre.javascript {
+  font-size: 0.7em !important;
+}
+
+.two-columns div {
+    float: left;
+    width: 50%;
+}
+
+.sugar-background {
+    color: black !important;
+}
+
+#slide-transpiler-definition dl {
+    font-size: 0.8em;
+    border: 4px solid white;
+    padding: 0.4em;
+    border-radius: 0.4em;
+}
+
+#slide-transpiler-definition dt {
+    margin-bottom: 0.8em;
+}
