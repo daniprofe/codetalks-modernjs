@@ -16,7 +16,12 @@ section aside.notes pre.javascript {
     width: 50%;
 }
 
-.sugar-background {
+.white-background h1, .white-background h2, .white-background h3,
+.white-background h4, .white-background h5, .white-background h6 {
+    color: blue !important;
+}
+
+.white-background {
     color: black !important;
 }
 
@@ -29,4 +34,8 @@ section aside.notes pre.javascript {
 
 #slide-transpiler-definition dt {
     margin-bottom: 0.8em;
+}
+
+.javascript {
+    padding: 1em !important;
 }

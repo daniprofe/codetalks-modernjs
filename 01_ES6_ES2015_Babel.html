@@ -75,31 +75,35 @@
 						<h3>The 'biggest' release since 2009 (ES5)</h3>
 					</section>
 
-					<section data-background="img/01/sugar.jpg" class="sugar-background">
-						<div class="two-columns">
+					<section data-background="img/01/iron_giant.jpeg">
+						<h2>Big features</h2>
+						<ul>
+							<li>Modules</li>
+							<li>Promises</li>
+						</ul>
+					</section>
 
-							<div>
-								<h2>'Big' features</h2>
-								<ul>
-									<li>Modules</li>
-									<li>Promises</li>
-								</ul>
-							</div>
+					<section data-background="img/01/sugar.jpg" class="white-background">
+						<h2>Syntactic sugar</h2>
+						<ul>
+							<li>let and const</li>
+							<li>arrow functions</li>
+							<li>default parameters</li>
+							<li>rest operator</li>
+							<li>spread operator</li>
+							<li>destructuring</li>
+							<li>template strings</li>
+						</ul>
+					</section>
 
-							<div>
-								<h2>'Syntactic sugar'</h2>
-								<ul>
-									<li>let and const</li>
-									<li>arrow functions</li>
-								    <li>default parameters</li>
-									<li>rest operator</li>
-								    <li>spread operator</li>
-								    <li>destructuring</li>
-								    <li>template strings</li>
-								</ul>
-							</div>
-
-						</div>
+					<section>
+						<h2>Things you should now...</h2>
+						<h3>...but maybe you don't know yet</h3>
+						<ul>
+							<li>var: scope, hoisting, overwrite</li>
+							<li>strict mode</li>
+							<li>undefined, falsy</li>
+						</ul>
 					</section>
 
 				</section>
@@ -126,12 +130,6 @@
 					<section data-background="img/01/babel.jpg">
 					</section>
 
-          <!--
-					<section data-background="img/01/linus_torvalds.jpg">
-						<h1>Talk is cheap<br>Show me the code</h1>
-					</section>
-				  -->
-
 				</section>
 
 				<section>
@@ -144,25 +142,35 @@
 
 
 					<section>
+
 						<h4>What will be shown on console?</h4>
 						<pre><code data-trim class="javascript">
-var counter = 10;
+							var counter = 10;
 
-// A lot of complex operations...
+							// A lot of complex operations...
 
-var result = counter * 2;
+							var result = counter * 2;
 
-// More complex things happen...
+							// More complex things happen...
 
-rsult = result * 2;
+							rsult = result * 2;
 
-// And finally we show the result!
+							// And finally we show the result!
 
-console.log(result);
+							console.log(result);
+						</code></pre>
+
+					</section>
+
+					<section data-background="img/01/strict.jpg">
+
+						<h1>Let's be strict!</h1>
+						<pre><code data-trim class="javascript">
+                            "use strict";
 						</code></pre>
 
 						<aside class="notes">
-<pre style="font-size: 0.6em;">
+							<pre style="font-size: 0.6em;">
 (function () {
 
 	"use strict";
@@ -182,63 +190,183 @@ console.log(result);
 	console.log(result);
 
 }());
-</pre>
+							</pre>
 						</aside>
-
-					</section>
-
-					<section data-background="img/01/strict.jpg">
-
-						<h1>Let's be strict!</h1>
-						<pre><code data-trim class="javascript">
-"use strict";
-						</code></pre>
 
 					</section>
 
 					<section data-background="img/01/scope.png">
 
-						<h2>scope</h2>
+						<h2>var has a <strong>function</strong> scope</h2>
+						<h3>global vs local</h3>
 
 						<h4>What will be shown on console?</h4>
 
 						<pre><code data-trim class="javascript">
-var globalVar = 'global';
+						var globalVar = 'global';
 
-function myFunction() {
-    var localVar = 'local';
-	  console.log('Inside function: ' + globalVar);
-	  console.log('Inside function: ' + localVar);
-}
+						function myFunction() {
 
-console.log('Outside function: ' + globalVar);
-console.log('Outside function: ' + localVar);
+						    var localVar = 'local';
+
+						    console.log('Inside function, global: ' + globalVar);
+						    console.log('Inside function, local: ' + localVar);
+
+						}
+
+						console.log('Outside function, global: ' + globalVar);
+						console.log('Outside function, local: ' + localVar);
 						</code></pre>
 
 					</section>
 
 					<section data-background="img/01/shadow.jpg">
 
-						<h2>shadowing</h2>
+						<h2>var has a <strong>function</strong> scope</h2>
+						<h3>shadowing</h3>
 
 						<h4>What will be shown on console?</h4>
 
 						<pre><code data-trim class="javascript">
-var myVar = 10;
+							var myVar = 10;
 
-function myFunction() {
+							console.log('Just initialized: ' + myVar);
 
-    var myVar = 20;
-		console.log('Inside function: ' + myVar);
+							function myFunction() {
 
-}
+							    var myVar = 20;
+							    console.log('Inside function: ' + myVar);
 
-myFunction();
+							}
 
-console.log('Outside function: ' + myVar);
+							myFunction();
+
+							console.log('Outside function: ' + myVar);
 						</code></pre>
 
 					</section>
+
+					<section data-background="img/01/upstairs.jpg">
+						<h1>WTF is 'hoisting'?</h1>
+						<img class="stretch" src="img/01/hoisted.png">
+					</section>
+
+					<section data-background="img/01/upstairs.jpg">
+
+						<h2>var has a <strong>function</strong> scope</h2>
+						<h3>hoisting</h3>
+
+						<h4>What will be shown on console?</h4>
+
+						<pre><code data-trim class="javascript">
+						"use strict";
+
+						var testing = true;
+
+						console.log('myVar still not declared! ' + myVar);
+
+						if (testing) {
+						    var myVar = -1;
+						}
+						</code></pre>
+
+						<aside class="notes">
+							<pre style="font-size: 0.6em;">
+(function () {
+
+	"use strict";
+
+	var testing = true;
+
+	console.log('myVar still not declared! ' + myVar);
+
+	if (testing) {
+	    var myVar = -1;
+	}
+
+}());
+							</pre>
+						</aside>
+
+					</section>
+
+					<section>
+
+						<h2>var has a <strong>function</strong> scope</h2>
+						<h3>hoisting: accidentally overwriting vars</h3>
+
+						<h4>What will be shown on console? (with 'testing' true/false)</h4>
+
+						<pre><code data-trim class="javascript">
+						var myVar = 10;
+						var testing = true;
+
+						console.log('Just initialized: ' + myVar);
+
+						if (testing) {
+						    var myVar = -1;
+						    console.log(
+						        'Just testing, this should be a temp value: ' +
+						        myVar
+						    );
+						}
+
+						console.log('Final value: ' + myVar);
+						</code></pre>
+
+					</section>
+
+					<section>
+
+						<h2>Accidentally overwriting is so dangerous!</h2>
+
+						<h4>What will happen if you execute this code?</h4>
+
+						<pre><code data-trim class="javascript">
+for (var i = 1; i <= 10; i++) {
+
+    console.log('Outer -> ' + i);
+
+    for (var i = 1; i <= 5; i++) {
+		console.log('  Inner -> ' + i);
+	}
+
+}
+
+console.log('Finished! -> ' + i);
+						</code></pre>
+
+					</section>
+
+					<section data-background="img/01/kid-superheroe.jpg">
+						<h1><strong>let</strong> comes to the rescue!</h1>
+					</section>
+
+					<section>
+
+						<h2>let has <strong>block</strong> scope</h2>
+						<h3>Reuse for counters without worries!</h3>
+
+						<pre><code data-trim class="javascript">
+for (let j = 1; j <= 10; j++) {
+
+    console.log('Outer -> ' + j);
+
+    for (let j = 1; j <= 5; j++) {
+		console.log('  Inner -> ' + j);
+	}
+
+}
+
+console.log('Finished! -> ' + j);
+						</code></pre>
+
+					</section>
+
+				</section>
+
+				<section>
+
 
 				</section>
 
@@ -253,6 +381,7 @@ console.log('Outside function: ' + myVar);
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
