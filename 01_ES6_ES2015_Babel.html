@@ -28,22 +28,19 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section>
+				<section class="center">
 					<h1>Modern Javascript I: ES6/ES2015 & Babel</h1>
-					<h2>by <a href="mailto:dani@on4u.es">Daniprofe</a></h2>
+					<h2>by <a href="mailto:daniprofe@gmail.com">Daniprofe</a></h2>
 				</section>
 
 				<section>
 
 					<!-- Javascript vs ECMAScript, versions timeline... -->
 
-					<section data-background="img/01/evolution_of_javascript.jpeg">
-					</section>
+					<section class="red" data-background="img/01/confused.jpeg">
 
-					<section data-background="img/01/confused.jpeg">
-
-						<h3>What-the-hell am I using?</h3>
-						<h3>Javascript or ES?</h3>
+						<h2>What-the-hell am I using?</h2>
+						<h2>Javascript or ES?</h2>
 
                         <aside class="notes" data-markdown>
 
@@ -66,24 +63,24 @@
 
 					</section>
 
-					<section>
-						<img class="stretch" src="img/01/es_timeline_02.png" />
+					<section class="center" data-background="img/01/evolution_of_javascript.jpeg">
+						<img class="fragment stretch" src="img/01/es_timeline_02.png" />
 					</section>
 
-					<section data-background="img/01/es5_and_es6.jpeg">
+					<section class="green" data-background="img/01/es5_and_es6.jpeg">
 						<h2>ES6 / ES2015</h2>
 						<h3>The 'biggest' release since 2009 (ES5)</h3>
 					</section>
 
-					<section data-background="img/01/iron_giant.jpeg">
+					<section class="center" data-background="img/01/iron_giant.jpeg">
 						<h2>Big features</h2>
-						<ul>
+						<ul class="red">
 							<li>Modules</li>
 							<li>Promises</li>
 						</ul>
 					</section>
 
-					<section data-background="img/01/sugar.jpg" class="white-background">
+					<section class="center red" data-background="img/01/sugar.jpg">
 						<h2>Syntactic sugar</h2>
 						<ul>
 							<li>let and const</li>
@@ -96,7 +93,7 @@
 						</ul>
 					</section>
 
-					<section>
+					<section class="center">
 						<h2>Things you should now...</h2>
 						<h3>...but maybe you don't know yet</h3>
 						<ul>
@@ -123,7 +120,7 @@
 						<h1>Do you know what means 'transpile'?</h1>
 						<dl>
 							<dt>Transpiler</dt>
-                            <dd>A source-to-source compiler, transcompiler or transpiler[1] is a type of compiler that takes the source code of a program written in one programming language as its input and produces the equivalent source code in another programming language.</dd>
+                            <dd>A source-to-source compiler, transcompiler or transpiler is a type of compiler that takes the source code of a program written in one programming language as its input and produces the equivalent source code in another programming language.</dd>
 					    </dl>
 					</section>
 
@@ -140,10 +137,40 @@
 					  </div>
 					</section>
 
+                    <section id="slide-dont-force" class="green" data-background="img/01/dont_force.jpg">
+						<h2>I could simply tell you...<h2>
+						<h3>you</h3> <h1>MUST</h1> <h3>use <strong>let</strong> and <strong>const</strong></h3>
+					</section>
+
+					<section class="center red" background-color="white">
+
+						<h2>And if you are a bad boy...</h2>
+
+						<div class="fragment fade-in">
+						    <img class="stretch fragment fade-out" src="img/01/azotes.jpeg" />
+					    </div>
+
+						<div class="fragment fade-in">
+						    <img class="stretch fragment fade-out" src="img/01/bart.png" />
+					    </div>
+
+					</section>
+
+					<section class="center">
+						<h2>But I'm not this kind of teacher...</h2>
+					    <img src="img/01/bad_teacher.jpg" />
+                    </section>
+
+					<section class="center">
+						<h2>I prefer to be like this teacher!</h2>
+						<img src="img/01/jackblack_school_of_rock.jpg" />
+						<h2 class="fragment">Let's rock!</h2>
+					</section>
+
 
 					<section>
 
-						<h4>What will be shown on console?</h4>
+						<h3>What will be shown on console?</h3>
 						<pre><code data-trim class="javascript">
 							var counter = 10;
 
@@ -159,6 +186,8 @@
 
 							console.log(result);
 						</code></pre>
+
+						<h3 class="fragment">Do you want to avoid misstyping errors?</h3>
 
 					</section>
 
@@ -214,6 +243,8 @@
 
 						}
 
+						myFunction();
+
 						console.log('Outside function, global: ' + globalVar);
 						console.log('Outside function, local: ' + localVar);
 						</code></pre>
@@ -248,7 +279,7 @@
 
 					<section data-background="img/01/upstairs.jpg">
 						<h1>WTF is 'hoisting'?</h1>
-						<img class="stretch" src="img/01/hoisted.png">
+						<img class="fragment stretch" src="img/01/hoisted.png">
 					</section>
 
 					<section data-background="img/01/upstairs.jpg">
@@ -323,22 +354,24 @@
 						<h4>What will happen if you execute this code?</h4>
 
 						<pre><code data-trim class="javascript">
-for (var i = 1; i <= 10; i++) {
+							for (var i = 1; i <= 10; i++) {
 
-    console.log('Outer -> ' + i);
+							    console.log('Outer -> ' + i);
 
-    for (var i = 1; i <= 5; i++) {
-		console.log('  Inner -> ' + i);
-	}
+							    for (let i = 1; i <= 5; i++) {
+							        console.log('  Inner -> ' + i);
+							    }
 
-}
+							}
 
-console.log('Finished! -> ' + i);
+							console.log('Finished! -> ' + i);
 						</code></pre>
+
+						<img class="stretch fragment" src="img/01/infinite_loop.gif" />
 
 					</section>
 
-					<section data-background="img/01/kid-superheroe.jpg">
+					<section class="center green" data-background="img/01/kid-superheroe.jpg">
 						<h1><strong>let</strong> comes to the rescue!</h1>
 					</section>
 
@@ -348,19 +381,74 @@ console.log('Finished! -> ' + i);
 						<h3>Reuse for counters without worries!</h3>
 
 						<pre><code data-trim class="javascript">
-for (let j = 1; j <= 10; j++) {
+							for (let j = 1; j <= 10; j++) {
 
-    console.log('Outer -> ' + j);
+							    console.log('Outer -> ' + j);
 
-    for (let j = 1; j <= 5; j++) {
-		console.log('  Inner -> ' + j);
-	}
+							    for (let j = 1; j <= 5; j++) {
+							        console.log('  Inner -> ' + j);
+							    }
 
-}
+							}
 
-console.log('Finished! -> ' + j);
+							console.log('Finished! -> ' + j);
 						</code></pre>
 
+					</section>
+
+					<section>
+
+						<h2>const</h2>
+						<h3>Is this the const we are using on other languages?</h3>
+
+						<pre><code data-trim class="javascript">
+							const notChangeAllowed = 8;
+							console.log(notChangeAllowed);
+						</code></pre>
+
+						<pre class="fragment"><code data-trim class="javascript">
+							notChangeAllowed = 10;
+							notChangeAllowed++;
+						</code></pre>
+
+					</section>
+
+					<section>
+
+						<h2>const</h2>
+						<h3>Is this the const we are using on other languages?</h3>
+
+						<pre><code data-trim class="javascript">
+							const person = {
+							    name: 'Pedro',
+							    email: 'pedro@aqui.es'
+							};
+
+							console.log(person);
+						</code></pre>
+
+						<pre class="fragment"><code data-trim class="javascript">
+							person.name = 'Juan';
+							person.phone = '668123123';
+
+							console.log(person);
+						</code></pre>
+
+						<pre class="fragment"><code data-trim class="javascript">
+							person = {
+							    name: 'María'
+							};
+						</code></pre>
+
+					</section>
+
+					<section>
+						<h1>Conclusions</h1>
+						<ul>
+							<li class="fragment">Don't use <strong>var</strong>! <span class="fragment">forget it!</span> <span class="fragment">forever!</span> <span class="fragment">not kidding!</span></li>
+							<li class="fragment">Use <strong>const</strong> when you don't need to re-assign</li>
+							<li class="fragment">Use <strong>let</strong> when you have to re-assign</li>
+						</ul>
 					</section>
 
 				</section>
@@ -382,6 +470,7 @@ console.log('Finished! -> ' + j);
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				history: true,
+				center: false,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
