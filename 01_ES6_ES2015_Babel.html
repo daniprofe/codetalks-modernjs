@@ -358,7 +358,7 @@
 
 							    console.log('Outer -> ' + i);
 
-							    for (let i = 1; i <= 5; i++) {
+							    for (var i = 1; i <= 5; i++) {
 							        console.log('  Inner -> ' + i);
 							    }
 
@@ -455,6 +455,22 @@
 
 				<section>
 
+                    <section class="center" data-background="img/01/arrow.jpg">
+						<h1>Arrow functions</h1>
+					</section>
+
+					<section class="center">
+						<pre><code data-trim class="javascript">
+							const week = [
+							    'lunes', 'martes', 'miércoles', 'jueves',
+							    'viernes', 'sábado', 'domingo'
+							];
+
+							function ucFirst(string) {
+							    return string.charAt(0).toUpperCase() + string.slice(1);
+							}
+						</code></pre>
+					</section>
 
 				</section>
 
