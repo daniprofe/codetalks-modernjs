@@ -460,6 +460,7 @@
 					</section>
 
 					<section class="center">
+						<h3>Build a new array with 'pretty' days and print it on console</h3>
 						<pre><code data-trim class="javascript">
 							const week = [
 							    'lunes', 'martes', 'miércoles', 'jueves',
@@ -470,7 +471,221 @@
 							    return string.charAt(0).toUpperCase() + string.slice(1);
 							}
 						</code></pre>
+
+                        <div class="fragment fade-in">
+	                        <div class="fragment fade-out">
+								<h3>ES5 way</h3>
+								<pre><code data-trim class="javascript">
+									ucWeek = week.map(function(day) { return ucFirst(day); });
+									console.log(ucWeek);
+								</code></pre>
+						    </div>
+						</div>
+
+						<div class="fragment">
+							<h3>ES6 way: arrow function</h3>
+							<pre><code data-trim class="javascript">
+								ucWeek = week.map(day => ucFirst(day));
+								console.log(ucWeek);
+							</code></pre>
+						</div>
+
 					</section>
+
+					<section class="center">
+						<h3>Show every day on spanish and english</h3>
+						<pre><code data-trim class="javascript">
+							const week = {
+							    spanish: [
+								    'lunes', 'martes', 'miércoles', 'jueves',
+								    'viernes', 'sábado', 'domingo'],
+								english: [
+								    'monday', 'tuesday', 'wednesday', 'thursday',
+									'friday', 'saturday', 'sunday']
+							};
+						</code></pre>
+
+                        <div class="fragment fade-in">
+	                        <div class="fragment fade-out">
+								<h3>ES5 way</h3>
+								<pre><code data-trim class="javascript">
+									bilingualWeek = week.spanish.map(function(spanishDay, index) {
+										return ucFirst(spanishDay) + ' - ' +
+										    ucFirst(week.english[index]);
+									});
+									console.log(bilingualWeek);
+								</code></pre>
+						    </div>
+						</div>
+
+						<div class="fragment">
+							<h3>ES6 way: arrow function</h3>
+							<pre><code data-trim class="javascript">
+								bilingualWeek = week.spanish.map(
+								    (spanishDay, index) => ucFirst(spanishDay) + ' - ' +
+										ucFirst(week.english[index])
+								);
+								console.log(bilingualWeek);
+							</code></pre>
+						</div>
+
+					</section>
+
+					<section class="center">
+
+						<h3>Multiline function body</h3>
+						<pre><code data-trim class="javascript">
+							const week = [
+							    'lunes', 'martes', 'miércoles', 'jueves',
+							    'viernes', 'sábado', 'domingo'
+							];
+
+							function ucFirst(string) {
+							    return string.charAt(0).toUpperCase() + string.slice(1);
+							}
+
+							ucWeek = week.map(day => {
+								console.log('*');
+								return ucFirst(day);
+							});
+
+							console.log(ucWeek);
+						</code></pre>
+
+					</section>
+
+					<section class="center">
+
+						<h3>Returning an object: use curly braces!</h3>
+						<pre><code data-trim class="javascript">
+							bilingualWeekObj = week.spanish.map(
+							    (spanishDay, index) => {
+							        spanish: ucFirst(spanishDay),
+							        english: ucFirst(week.english[index])
+							    }
+							);
+
+							console.log(bilingualWeekObj);
+						</code></pre>
+
+					</section>
+
+					<section class="center">
+
+						<h3>Arrow functions have no 'this'</h3>
+
+	                    <div class="fragment fade-out">
+							<h3>ES5</h3>
+							<pre><code data-trim class="javascript">
+								const worker = {
+								    firstName: 'Peter',
+								    lastName: 'Jackson',
+								    showFullName: function() {
+								        console.log(this.firstName + ' ' + this.lastName);
+								    },
+								    showThis: function () {
+								        console.log(this);
+								    }
+								};
+
+								worker.showFullName();
+								worker.showThis();
+							</code></pre>
+					    </div>
+
+						<div class="fragment">
+							<h3>ES6</h3>
+							<pre><code data-trim class="javascript">
+							const es6Worker = {
+							    firstName: 'Peter',
+							    lastName: 'Jackson',
+							    showFullName: () => {
+							        console.log(this.firstName + ' ' + this.lastName);
+							    },
+							    showThis: () => {
+							        console.log(this);
+							    }
+							};
+
+							es6Worker.showFullName();
+							es6Worker.showThis();
+							</code></pre>
+						</div>
+
+					</section>
+
+					<section class="center">
+
+						<h4>What will happen?</h4>
+						<pre><code data-trim class="javascript">
+							const timer = {
+							    waitAndInc: function () {
+
+							        this.counter = 8;
+							        console.log('Initial value: ' + this.counter);
+
+							        setTimeout(function () {
+							            this.counter++;
+							            console.log('Final value: ' + this.counter);
+						            }, 1000);
+
+							    }
+							};
+
+							timer.waitAndInc();
+						</code></pre>
+
+                    </section>
+
+					<section class="center">
+
+						<h4>How we can fix it?</h4>
+						<pre class="fragment"><code data-trim class="javascript">
+							const fixedTimer = {
+							    waitAndInc: function () {
+
+							        this.counter = 8;
+							        console.log('Initial value: ' + this.counter);
+
+                                    var tthis = this;
+
+							        setTimeout(function () {
+							            tthis.counter++;
+							            console.log('Final value: ' + tthis.counter);
+						            }, 1000);
+
+							    }
+							};
+
+							fixedTimer.waitAndInc();
+						</code></pre>
+
+                    </section>
+
+					<section class="center">
+
+						<h4>using arrow functions... no problem!</h4>
+						<pre><code data-trim class="javascript">
+							const es6Timer = {
+							    waitAndInc: function () {
+
+							        this.counter = 8;
+							        console.log('Initial value: ' + this.counter);
+
+							        setTimeout(() => {
+							            this.counter++;
+							            console.log('Final value: ' + this.counter);
+						            }, 1000);
+
+							    }
+							};
+
+							es6Timer.waitAndInc();
+						</code></pre>
+
+                    </section>
+
+				</section>
 
 				</section>
 
