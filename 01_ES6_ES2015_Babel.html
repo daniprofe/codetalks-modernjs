@@ -497,11 +497,11 @@
 						<pre><code data-trim class="javascript">
 							const week = {
 							    spanish: [
-								    'lunes', 'martes', 'miércoles', 'jueves',
-								    'viernes', 'sábado', 'domingo'],
-								english: [
-								    'monday', 'tuesday', 'wednesday', 'thursday',
-									'friday', 'saturday', 'sunday']
+							        'lunes', 'martes', 'miércoles', 'jueves',
+							        'viernes', 'sábado', 'domingo'],
+							    english: [
+							        'monday', 'tuesday', 'wednesday', 'thursday',
+							        'friday', 'saturday', 'sunday']
 							};
 						</code></pre>
 
@@ -684,6 +684,77 @@
 						</code></pre>
 
                     </section>
+
+				</section>
+
+				<section>
+
+					<section class="center">
+
+						<h4>How do you check for optional agruments and apply default values?</h4>
+						<pre><code data-trim class="javascript">
+// chunkSize is optional, default value: 10
+
+function processData (data, chunkSize) {
+    console.log('Processing data on chunks of ' + chunkSize +
+        ' records...');
+}
+
+processData(['ab', 'cd']);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>Do you use this? Some problem with it?</h4>
+						<pre><code data-trim class="javascript">
+// chunkSize is optional, default value: 10
+
+function processData (data, chunkSize) {
+    chunkSize = chunkSize || 10;
+    console.log('Processing data on chunks of ' + chunkSize +
+        ' records...');
+}
+
+processData(['ab', 'cd']);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>Or this...</h4>
+						<pre><code data-trim class="javascript">
+// chunkSize is optional, default value: 10
+
+function processData (data, chunkSize) {
+    if (!chunkSize) {
+        chunkSize = 10;
+    }
+
+    console.log('Processing data on chunks of ' + chunkSize +
+        ' records...');
+}
+
+processData(['ab', 'cd']);
+						</code></pre>
+
+				    </section>
+
+					<section background-image="img/01/be-careful.jpg" class="center">
+						<h2>Be careful: 'falsy'</h2>
+						<h3>The following are evaluated as false on boolean-context (if, &&, ||...)</h3>
+						<ul>
+							<li>false</li>
+							<li>null</li>
+							<li>0</li>
+							<li>NaN</li>
+							<li>''</li>
+							<li>""</li>
+							<li>document.all</li>
+						</ul>
+					</section>
 
 				</section>
 
