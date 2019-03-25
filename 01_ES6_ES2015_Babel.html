@@ -756,7 +756,94 @@ processData(['ab', 'cd']);
 						</ul>
 					</section>
 
+					<section class="center">
+
+						<h4>We can finally use default parameters!</h4>
+						<pre><code data-trim class="javascript">
+// chunkSize is optional, default value: 10
+
+function processData (data, chunkSize = 10) {
+    console.log('Processing data on chunks of ' + chunkSize +
+        ' records...');
+}
+
+processData(['ab', 'cd']);
+						</code></pre>
+
+				    </section>
+
 				</section>
+
+				<section>
+
+					<section class="center">
+
+						<h4>How do you usually manage multi-line text?</h4>
+						<pre><code data-trim class="javascript">
+let multilineText = 'This is a pretty story\n\n' +
+    'Once upon a time...\n\n' +
+    'THE END';
+
+console.log(multilineText);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>With ES6's template literals... funnier!</h4>
+						<pre><code data-trim class="javascript">
+let multilineText = `This is a pretty story
+
+    Once upon a time...
+
+    THE END`;
+
+console.log(multilineText);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>How do you usually show variables 'inside' a string?</h4>
+						<pre><code data-trim class="javascript">
+const apples = 8;
+const kid = 'Peter';
+
+let message = 'This morning ' + kid + ' bought ' +
+    apples + ' apples';
+
+console.log(message);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>With ES6's template literals... funnier!</h4>
+						<pre><code data-trim class="javascript">
+let message = `This morning ${kid} bought ${apples} apples`;
+
+console.log(message);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>You can also use expressions!</h4>
+						<pre><code data-trim class="javascript">
+const total = 16;
+let message = `If ${kid} paid ${total} dollars,
+    an apple costs ${total/apples} dollars`;
+
+console.log(message);
+						</code></pre>
+
+				    </section>
+
+                </section>
 
 				</section>
 
