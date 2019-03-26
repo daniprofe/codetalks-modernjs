@@ -1,0 +1,83 @@
+Javascript evolution
+====================
+
+http://www.benmvp.com/learning-es6-history-of-ecmascript/
+
+ES5 to ESNext — here’s every feature added to JavaScript since 2015
+https://medium.freecodecamp.org/es5-to-esnext-heres-every-feature-added-to-javascript-since-2015-d0c255e13c6e
+
+ES compat table: https://kangax.github.io/compat-table/es6/
+
++ Not really ES6/ES2015, but... did you know?
+    - var: scope, hoisting
+    - strict mode
+    - undefined and falsy
+
++ 'Big' features:
+    - classes
+    - promises
+    - modules
+
++ 'Syntactic sugar':
+    - let and const
+    - arrow functions
+    - default parameters, rest operator
+    - spread operator
+    - destructuring
+    - template strings
+
+01. Strict mode (ES5)
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+
+02. var vs let
+
+    var: function scope. Local vs global, shadowing
+    let: block scope
+    const: not reassignable, but mutability allowed
+
+    https://cybmeta.com/var-let-y-const-en-javascript
+
+03. arrow functions
+
+04. default parameters and undefined
+
+06. Template strings
+https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/template_strings
+
+Rest & spread operators
+https://javascript.info/rest-parameters-spread-operator
+
+05. Classes
+
+Destructuring
+
+References:
+
+Exploring JS: JavaScript books for programmers
+http://exploringjs.com/
+
+http://exploringjs.com/es6/index.html#toc_ch_destructuring
+
+The Modern Javascript Tutorial
+https://javascript.info/
+
+Setting up ES6
+https://leanpub.com/setting-up-es6
+
+ECMAScript 6
+Data Access Tutorial
+http://ccoenraets.github.io/es6-tutorial-data/
+http://ccoenraets.github.io/es6-tutorial/
+
+A short and simple guide to Babel
+https://flaviocopes.com/babel/
+
+Auth0 - A rundown of Javascript 2015 features
+https://auth0.com/blog/a-rundown-of-es6-features
+
+Auth0 - A brief history
+https://auth0.com/blog/a-brief-history-of-javascript
+
+ES modules: A cartoon deep-dive
+https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/

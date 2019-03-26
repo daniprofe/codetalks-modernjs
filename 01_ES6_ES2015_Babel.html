@@ -845,6 +845,232 @@ console.log(message);
 
                 </section>
 
+				<section>
+
+					<section class="center">
+
+						<h4>Do you know Math.max?</h4>
+
+						<pre><code data-trim class="javascript">
+let max = Math.max(-2, 2, 800, 7);
+
+console.log(max);
+						</code></pre>
+
+						<h4>How do you use it with an array?</h4>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>You can use apply...</h4>
+						<pre><code data-trim class="javascript">
+const numbers = [-2, 2, 800, 7];
+let max = Math.max.apply(this, numbers);
+
+console.log(max);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>On ES6 you can use spread operator!</h4>
+						<pre><code data-trim class="javascript">
+const numbers = [-2, 2, 800, 7];
+let max = Math.max(...numbers);
+
+console.log(max);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>How do you concat arrays?</h4>
+						<pre><code data-trim class="javascript">
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+						</code></pre>
+
+						<pre><code data-trim class="javascript segment">
+let finalArray = array1.concat(array2);
+console.log(finalArray);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>On ES6 you can use spread operator to concat arrays!</h4>
+						<pre><code data-trim class="javascript">
+finalArray = [...array1, ...array2, 77, 88];
+console.log(finalArray);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>Rest parameter: push a bunch of function parameters on an array</h4>
+						<pre><code data-trim class="javascript">
+function MultMax(multiplier, ...numbers) {
+    return multiplier * numbers.reduce(
+        function(sum, number) {
+            return sum + number;
+        }
+    );
+}
+
+console.log(MultSum(3, 1, 2));
+console.log(MultSum(3, 1, 2, 3));
+						</code></pre>
+
+				    </section>
+
+				</section>
+
+				<section>
+
+					<section class="center">
+
+						<h4>Array destructuring</h4>
+						<pre><code data-trim class="javascript">
+let dimensions = [1, 2, 3, 4, 5, 6, 7];
+let [width, height, depth, ...other] = dimensions;
+
+console.log (width);
+console.log (height);
+console.log (depth);
+console.log(other);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>Object destructuring</h4>
+						<pre><code data-trim class="javascript">
+let worker = {
+    name: 'John',
+    age: 42,
+    country: 'Spain'
+};
+
+let {name, age, country} = worker;
+
+console.log(`My name is ${name}, I'm ${age}
+    years old and I live in ${country}`);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>You can of course use variable names not matching object properties</h4>
+						<pre><code data-trim class="javascript">
+let worker = {
+    name: 'John',
+    age: 42,
+    country: 'Spain'
+};
+
+let {name: firstname, country: living} = worker;
+
+console.log(`My name is ${firstname} and I live in ${living}`);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>Be careful using existing vars!</h4>
+						<pre><code data-trim class="javascript">
+let worker = {
+    name: 'John',
+    age: 42,
+    country: 'Spain'
+};
+
+let name = 'Mary';
+
+{name} = worker;
+
+console.log(`My name is ${name}`);
+						</code></pre>
+						<h4>This doesn't work!</h4>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>You MUST use parenthesis!</h4>
+						<pre><code data-trim class="javascript">
+let worker = {
+    name: 'John',
+    age: 42,
+    country: 'Spain'
+};
+
+let name = 'Mary';
+
+({name} = worker);
+
+console.log(`My name is ${name}`);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>You can also use spread operator with objects!</h4>
+						<pre><code data-trim class="javascript">
+let worker = {
+    name: 'John',
+    age: 42,
+    country: 'Spain'
+};
+
+let {name, ...otherData} = worker;
+
+console.log(`My name is ${name}`);
+console.log(otherData);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>You can also use default values</h4>
+						<pre><code data-trim class="javascript">
+let worker = {
+    name: 'John',
+    age: 42,
+};
+
+let {name, age, country = 'unknown'} = worker;
+
+console.log(`My name is ${name}, I'm ${age}
+    years old and I live in ${country}`);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>And you can do this on function parameters too</h4>
+						<pre><code data-trim class="javascript">
+function drawBox({width, height, color = 'yellow'}) {
+    console.log(`Drawing box, dimensions: ${width}x${height},
+        color: ${color}`);
+}
+
+drawBox({width: 4, height: 2});
+drawBox({width: 3, height: 5, color: 'blue'});
+						</code></pre>
+
+				    </section>
+
 				</section>
 
 			</div>
