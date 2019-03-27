@@ -25,46 +25,49 @@
 	</head>
 
 	<body>
+
 		<div class="reveal">
 			<div class="slides">
+
+                <!-- Talk title -->
 
 				<section class="center">
 					<h1>Modern Javascript I: ES6/ES2015 & Babel</h1>
 					<h2>by <a href="mailto:daniprofe@gmail.com">Daniprofe</a></h2>
 				</section>
 
-				<section>
+                <!-- Javascript vs ECMAScript, evolution, features, talk structure... -->
 
-					<!-- Javascript vs ECMAScript, versions timeline... -->
+				<section>
 
 					<section class="red" data-background="img/01/confused.jpeg">
 
 						<h2>What-the-hell am I using?</h2>
 						<h2>Javascript or ES?</h2>
 
-                        <aside class="notes" data-markdown>
-
-							[A Brief History of Javascript](https://auth0.com/blog/a-brief-history-of-javascript/)
-
-							Brendan Eich developed Javascript in only 10 days for Netscape. It was first released on Netscape Navigator 2.0, released on May 1995
-
-							It was firstly named 'Mocha', soon changed to 'LiveScript' and finally to 'Javascript'
-
-							[ECMA](http://www.ecma-international.org) means 'European association for standardizing information and communication systems'
-
-                            Netscape submitted Javascript to ECMA for standarization on november 1996. The standard was named ECMA-262, aka ECMAScript, and is managed by the TC-39 comitee
-
-							The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
-
-							[List of EMCASCript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
-							[JavaScript Versions: ES6 and Before](https://www.codecademy.com/articles/javascript-versions)
-
-						</aside>
-
 					</section>
 
 					<section class="center" data-background="img/01/evolution_of_javascript.jpeg">
+
 						<img class="fragment stretch" src="img/01/es_timeline_02.png" />
+
+						<aside class="notes" data-markdown>
+[A Brief History of Javascript](https://auth0.com/blog/a-brief-history-of-javascript/)
+
+Brendan Eich developed Javascript in only 10 days for Netscape. It was first released on Netscape Navigator 2.0, released on May 1995
+
+It was firstly named 'Mocha', soon changed to 'LiveScript' and finally to 'Javascript'
+
+[ECMA](http://www.ecma-international.org) means 'European association for standardizing information and communication systems'
+
+Netscape submitted Javascript to ECMA for standarization on november 1996. The standard was named ECMA-262, aka ECMAScript, and is managed by the TC-39 comitee
+
+The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
+
+* [List of EMCASCript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+* [JavaScript Versions: ES6 and Before](https://www.codecademy.com/articles/javascript-versions)
+						</aside>
+
 					</section>
 
 					<section class="green" data-background="img/01/es5_and_es6.jpeg">
@@ -77,6 +80,8 @@
 						<ul class="red">
 							<li>Modules</li>
 							<li>Promises</li>
+							<li>Classes?</li>
+							<li>Generators</li>
 						</ul>
 					</section>
 
@@ -86,24 +91,26 @@
 							<li>let and const</li>
 							<li>arrow functions</li>
 							<li>default parameters</li>
-							<li>rest operator</li>
-							<li>spread operator</li>
+							<li>rest and spread</li>
 							<li>destructuring</li>
 							<li>template strings</li>
 						</ul>
 					</section>
 
-					<section class="center">
+					<section class="center red" data-background="img/01/surprised.png">
 						<h2>Things you should now...</h2>
 						<h3>...but maybe you don't know yet</h3>
 						<ul>
 							<li>var: scope, hoisting, overwrite</li>
 							<li>strict mode</li>
 							<li>undefined, falsy</li>
+							<li>mutation</li>
 						</ul>
 					</section>
 
 				</section>
+
+                <!-- BABEL -->
 
 				<section>
 
@@ -113,7 +120,7 @@
 						<img class="stretch" src="img/01/es6_compatibility_table.png">
 						<div>
 						    <a class="image-baseline-ref" href="http://kangax.github.io/compat-table/es6/">ES6 compatibility table</a>
-					  </div>
+					    </div>
 					</section>
 
 					<section id='slide-transpiler-definition'>
@@ -125,21 +132,61 @@
 					</section>
 
 					<section data-background="img/01/babel.jpg">
+						<div class="two-columns">
+							<div>
+							    <h1><a href="https://babeljs.io" target="_blank">Babel</a></h1>
+						    </div>
+							<div>
+							    <h1><a href="https://babeljs.io/repl" target="_blank">REPL</a></h1>
+						    </div>
+						</div>
+					</section>
+
+					<section class="babel-two-ways" data-background="img/01/matrix_pill.jpg">
+						<h2>You can use Babel in two ways...</h2>
+						<div class="two-columns fragment">
+							<div>
+								<h3>Standalone</h3>
+							</div>
+							<div>
+								<h3>With your favorite bundler</h3>
+							</div>
+						</div>
+					</section>
+
+					<section data-background="img/01/suitcase.jpg">
+						<h1>Welcome bundlers!</h1>
+						<table>
+							<tbody>
+								<tr>
+									<td><img src="img/01/webpack_logo.png" /></td>
+									<td style="text-align: center;"><img style="max-height: 150px;" src="img/01/rollup_logo.jpg" /></td>
+								</tr>
+								<tr>
+									<td><img src="img/01/browserify_logo.png" /></td>
+									<td><img src="img/01/parcel_logo.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						<h3><a href="https://medium.com/@ajmeyghani/javascript-bundlers-a-comparison-e63f01f2a364">Bundler comparison</a></h3>
 					</section>
 
 				</section>
+
+				<!-- var, let and const. scope, hoisting... -->
 
 				<section>
 
 					<section data-background="img/01/boxing.jpg">
 						<div style="color: #117929;">
-						  <h1 style="display: inline;">var</h1> <h3 style="display: inline;">vs</h3> <h1 style="display: inline;">let</h1>
-					  </div>
+						    <h1 style="display: inline;">var</h1> <h3 style="display: inline;">vs</h3> <h1 style="display: inline;">let</h1>
+					    </div>
 					</section>
 
                     <section id="slide-dont-force" class="green" data-background="img/01/dont_force.jpg">
 						<h2>I could simply tell you...<h2>
-						<h3>you</h3> <h1>MUST</h1> <h3>use <strong>let</strong> and <strong>const</strong></h3>
+						<h3>you</h3> <h1>MUST</h1> <h3>use</h3>
+						<h2>let</h2> <h3>and</h3> <h2>const</h2>
 					</section>
 
 					<section class="center red" background-color="white">
