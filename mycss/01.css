@@ -62,3 +62,10 @@ section aside.notes {
 .javascript {
     padding: 1em !important;
 }
+
+.hide-not-actual-fragment .fragment.visible:not(.current-fragment) {
+    display: none;
+    height:0px;
+    line-height: 0px;
+    font-size: 0px;
+}

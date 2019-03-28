@@ -509,7 +509,8 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 					</section>
 
 					<section class="center">
-						<h3>Build a new array with 'pretty' days and print it on console</h3>
+						<h3>Playing with arrays...</h3>
+						<h4>Build a new array with 'pretty' days and print it on console</h4>
 						<pre><code data-trim class="javascript">
 							const week = [
 							    'lunes', 'martes', 'miércoles', 'jueves',
@@ -541,7 +542,43 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 
 					</section>
 
-					<section class="center">
+					<section class="center" data-background="img/01/map.jpg">
+						<h2>Have you ever used .map ?</h2>
+						<img class="fragment" src="img/01/mdn_map.png" />
+					</section>
+
+					<section class="hide-not-actual-fragment center">
+						<pre><code data-trim class="javascript">
+							const week = [
+							    'lunes', 'martes', 'miércoles', 'jueves',
+							    'viernes', 'sábado', 'domingo'
+							];
+
+							function ucFirst(string) {
+							    return string.charAt(0).toUpperCase() + string.slice(1);
+							}
+						</code></pre>
+
+                        <div class="fragment fade-in">
+	                        <div class="fragment fade-out">
+								<h3>ES5 way</h3>
+								<pre><code data-trim class="javascript">
+									ucWeek = week.map(function(day) { return ucFirst(day); });
+									console.log(ucWeek);
+								</code></pre>
+						    </div>
+						</div>
+
+						<div class="fragment">
+							<h3>ES6 way: arrow function</h3>
+							<pre><code data-trim class="javascript">
+								ucWeek = week.map(day => ucFirst(day));
+								console.log(ucWeek);
+							</code></pre>
+						</div>
+					</section>
+
+					<section class="center hide-not-actual-fragment">
 						<h3>Show every day on spanish and english</h3>
 						<pre><code data-trim class="javascript">
 							const week = {
@@ -619,7 +656,7 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 
 					</section>
 
-					<section class="center">
+					<section class="center hide-not-actual-fragment">
 
 						<h3>Arrow functions have no 'this'</h3>
 
@@ -686,10 +723,10 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 
                     </section>
 
-					<section class="center">
+					<section>
 
 						<h4>How we can fix it?</h4>
-						<pre class="fragment"><code data-trim class="javascript">
+						<pre class="fragment"><code data-trim class="javascript" style="max-height: 450px;">
 							const fixedTimer = {
 							    waitAndInc: function () {
 
