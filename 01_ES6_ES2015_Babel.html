@@ -40,7 +40,7 @@
 
 				<section>
 
-					<section class="red" data-background="img/01/confused.jpeg">
+					<section data-background="img/01/confused.jpeg">
 
 						<h2>What-the-hell am I using?</h2>
 						<h2>Javascript or ES?</h2>
@@ -70,14 +70,16 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 
 					</section>
 
-					<section class="green" data-background="img/01/es5_and_es6.jpeg">
-						<h2>ES6 / ES2015</h2>
-						<h3>The 'biggest' release since 2009 (ES5)</h3>
+					<section class="center" data-background="img/01/es5_and_es6.jpeg">
+						<div style="padding-top: 10em;">
+							<h2>ES6 / ES2015</h2>
+							<h3>The 'biggest' release since 2009 (ES5)</h3>
+					    </div>
 					</section>
 
 					<section class="center" data-background="img/01/iron_giant.jpeg">
 						<h2>Big features</h2>
-						<ul class="red">
+						<ul>
 							<li>Modules</li>
 							<li>Promises</li>
 							<li>Classes?</li>
@@ -85,7 +87,7 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 						</ul>
 					</section>
 
-					<section class="center red" data-background="img/01/sugar.jpg">
+					<section class="center" data-background="img/01/sugar.jpg">
 						<h2>Syntactic sugar</h2>
 						<ul>
 							<li>let and const</li>
@@ -97,7 +99,7 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 						</ul>
 					</section>
 
-					<section class="center red" data-background="img/01/surprised.png">
+					<section class="center" data-background="img/01/surprised.png">
 						<h2>Things you should now...</h2>
 						<h3>...but maybe you don't know yet</h3>
 						<ul>
@@ -183,13 +185,13 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 					    </div>
 					</section>
 
-                    <section id="slide-dont-force" class="green" data-background="img/01/dont_force.jpg">
+                    <section id="slide-dont-force" data-background="img/01/dont_force.jpg">
 						<h2>I could simply tell you...<h2>
 						<h3>you</h3> <h1>MUST</h1> <h3>use</h3>
 						<h2>let</h2> <h3>and</h3> <h2>const</h2>
 					</section>
 
-					<section class="center red" background-color="white">
+					<section class="center" background-color="white">
 
 						<h2>And if you are a bad boy...</h2>
 
@@ -418,7 +420,7 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 
 					</section>
 
-					<section class="center green" data-background="img/01/kid-superheroe.jpg">
+					<section class="center" data-background="img/01/kid-superheroe.jpg">
 						<h1><strong>let</strong> comes to the rescue!</h1>
 					</section>
 
@@ -736,6 +738,10 @@ The first ECMAScript (ES1) was released with Netscape Navigator 4 on June 1997
 
 				<section>
 
+					<section  data-background="img/01/default.jpg">
+						<h2>Default parameters</h2>
+					</section>
+
 					<section class="center">
 
 						<h4>How do you check for optional agruments and apply default values?</h4>
@@ -789,7 +795,7 @@ processData(['ab', 'cd']);
 
 				    </section>
 
-					<section background-image="img/01/be-careful.jpg" class="center">
+					<section data-background="img/01/be-careful.jpg" class="center">
 						<h2>Be careful: 'falsy'</h2>
 						<h3>The following are evaluated as false on boolean-context (if, &&, ||...)</h3>
 						<ul>
@@ -805,7 +811,7 @@ processData(['ab', 'cd']);
 
 					<section class="center">
 
-						<h4>We can finally use default parameters!</h4>
+						<h4>With ES6 we can use default parameters!</h4>
 						<pre><code data-trim class="javascript">
 // chunkSize is optional, default value: 10
 
@@ -822,6 +828,15 @@ processData(['ab', 'cd']);
 				</section>
 
 				<section>
+
+					<section data-background="img/01/use_the_force.jpg">
+						<h1>Template literals</h1>
+						<h3>Use the backtick, Luke!</h3>
+						<div class="two-columns fragment">
+							<div><img src="img/01/backtick.jpg" /></div>
+							<div><img src="img/01/spanish_keyboard.png" /></div>
+						</div>
+					</section>
 
 					<section class="center">
 
@@ -870,7 +885,7 @@ console.log(message);
 
 						<h4>With ES6's template literals... funnier!</h4>
 						<pre><code data-trim class="javascript">
-let message = `This morning ${kid} bought ${apples} apples`;
+message = `This morning ${kid} bought ${apples} apples`;
 
 console.log(message);
 						</code></pre>
@@ -879,10 +894,10 @@ console.log(message);
 
 					<section class="center">
 
-						<h4>You can also use expressions!</h4>
+						<h4>Any valid Javascript expression is valid inside dollar+brackets!</h4>
 						<pre><code data-trim class="javascript">
-const total = 16;
-let message = `If ${kid} paid ${total} dollars,
+const total = 25;
+message = `If ${kid} paid ${total} dollars,
     an apple costs ${total/apples} dollars`;
 
 console.log(message);
@@ -895,28 +910,53 @@ console.log(message);
 				<section>
 
 					<section class="center">
+						<h1>Let me introduce you two new friends...</h1>
+					</section>
 
-						<h4>Do you know Math.max?</h4>
+					<section data-background="img/01/rest.jpeg">
+						<h1>rest</h1>
+					</section>
 
-						<pre><code data-trim class="javascript">
-let max = Math.max(-2, 2, 800, 7);
-
-console.log(max);
-						</code></pre>
-
-						<h4>How do you use it with an array?</h4>
-
-				    </section>
+					<section data-background="img/01/spread.jpg">
+						<h1>spread</h1>
+					</section>
 
 					<section class="center">
 
-						<h4>You can use apply...</h4>
+						<h2>Have you ever used Math.max?</h2>
+
+						<img src="img/01/Math.max.png" />
+                        <!--
+
+
+						<h4>How do you use it with an array?</h4>
+					    -->
+				    </section>
+
+					<section class="center" data-background="img/01/easy_as_123.jpg">
+						<div style="padding-top: 2em;">
+							<h4 style="color: blue;">0 to n arguments supported!</h4>
+							<pre><code data-trim class="javascript">
+let max = Math.max(-2, 2, 800, 7);
+
+console.log(max);
+							</code></pre>
+					    </div>
+					</section>
+
+					<section>
+                        <h3>And if your numbers are stored on an array?</h3>
 						<pre><code data-trim class="javascript">
 const numbers = [-2, 2, 800, 7];
+						</code></pre>
+						<div class="fragment">
+							<h4>Have you ever used 'apply'? ES5-way...</h4>
+							<pre><code data-trim class="javascript">
 let max = Math.max.apply(this, numbers);
 
 console.log(max);
-						</code></pre>
+							</code></pre>
+					    </div>
 
 				    </section>
 
@@ -924,38 +964,151 @@ console.log(max);
 
 						<h4>On ES6 you can use spread operator!</h4>
 						<pre><code data-trim class="javascript">
-const numbers = [-2, 2, 800, 7];
-let max = Math.max(...numbers);
+max = Math.max(...numbers);
 
 console.log(max);
 						</code></pre>
 
 				    </section>
 
-					<section class="center">
-
-						<h4>How do you concat arrays?</h4>
+					<section data-background="img/01/procesionaria.jpg">
+						<h3>How do you concat arrays?</h3>
 						<pre><code data-trim class="javascript">
-let array1 = [1, 2, 3];
-let array2 = [4, 5, 6];
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
 						</code></pre>
 
-						<pre><code data-trim class="javascript segment">
+						<pre class="fragment"><code data-trim class="javascript segment">
 let finalArray = array1.concat(array2);
 console.log(finalArray);
 						</code></pre>
 
+                        <div class="fragment">
+							<h4>On ES6 you can use spread operator to concat arrays!</h4>
+							<pre><code data-trim class="javascript">
+	finalArray = [...array1, ...array2, 77, 88];
+	console.log(finalArray);
+							</code></pre>
+					    </div>
+
 				    </section>
 
 					<section class="center">
 
-						<h4>On ES6 you can use spread operator to concat arrays!</h4>
+						<h4>You can also use spread operator to merge objects!</h4>
 						<pre><code data-trim class="javascript">
-finalArray = [...array1, ...array2, 77, 88];
-console.log(finalArray);
+let basicData = {
+    name: 'Peter',
+    age: 28
+};
+
+let extendedData = {
+    country: 'Spain',
+    id: '88765'
+};
+
+let fullData = {...basicData, ...extendedData};
+console.log(fullData);
 						</code></pre>
 
 				    </section>
+
+					<section class="center" data-background="img/01/be-careful.jpg">
+
+						<h2>Be careful!</h2>
+
+                        <div class="fragment">
+						    <pre><code data-trim class="javascript">
+basicData = {
+    name: 'Peter',
+    address: {
+        'city': 'Vitoria'
+    }
+};
+
+extendedData = {
+    id: '88765',
+    address: {
+        'country': 'Spain'
+    }
+};
+
+fullData = {...basicData, ...extendedData};
+console.log(fullData);
+						    </code></pre>
+					    </div>
+						<h4 class="fragment">spread is NOT a deep-clone!</h4>
+
+				    </section>
+
+					<section class="center">
+
+						<h2>You can also use spread operator to clone objects!</h2>
+                        <h3 class="fragment">Of course you know why we should clone objects and arrays...</h3>
+						<h3 class="fragment">...because you are a JS-master, and you know everything about...</h3>
+
+				    </section>
+
+					<section class="center" data-background="img/01/mutant.jpg">
+						<h1>Mutation!</h1>
+					</section>
+
+					<section class="center">
+
+						<h4>What will be shown on console?</h4>
+						<pre><code data-trim class="javascript">
+function showLast(inputArray) {
+	console.log('Last item on array: ' + inputArray.pop());
+}
+
+const myArray = [1, 2, 3, 4];
+
+showLast(myArray);
+
+console.log('This is my array now:');
+console.log(myArray);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h4>What will be shown on console?</h4>
+						<pre><code data-trim class="javascript">
+let origPosition = {
+    x: 10,
+    y: 20
+};
+
+let finalPosition = origPosition;
+finalPosition.x += 10;
+finalPosition.y += 10;
+
+console.log('Original position:');
+console.log(origPosition);
+
+console.log('Final position:');
+console.log(finalPosition);
+					    </code></pre>
+
+					</section>
+
+					<section class="center" data-background="img/01/clonation.jpg">
+						<h2>Easy way to clone an object using spread operator:</h2>
+						<pre><code data-trim class="javascript">
+finalPosition = {...origPosition};
+finalPosition.x += 10;
+finalPosition.y += 10;
+
+console.log('Original position:');
+console.log(origPosition);
+
+console.log('Final position:');
+console.log(finalPosition);
+					    </code></pre>
+					</section>
+
+				</section>
 
 					<section class="center">
 

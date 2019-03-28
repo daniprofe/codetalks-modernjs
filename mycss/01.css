@@ -1,3 +1,7 @@
+.reveal .slide-background-content {
+    opacity: 0.5;
+}
+
 .reveal .slides>section,
 .reveal .slides>section>section {
     padding: 0;
@@ -57,11 +61,4 @@ section aside.notes {
 
 .javascript {
     padding: 1em !important;
-}
-
-.fragment.visible:not(.current-fragment) {
-    display: none;
-    height:0px;
-    line-height: 0px;
-    font-size: 0px;
 }
