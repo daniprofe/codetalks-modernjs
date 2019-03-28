@@ -1108,11 +1108,27 @@ console.log(finalPosition);
 					    </code></pre>
 					</section>
 
-				</section>
+					<section class="center" data-background="img/01/clonation.jpg">
+						<h2>And how do you clone an array?</h2>
+
+						<pre class="fragment"><code data-trim class="javascript">
+const origArray = [1, 2, 3, 4];
+const clonedArray = [...origArray];
+clonedArray.pop();
+
+console.log('Original array:');
+console.log(origArray);
+
+console.log('Cloned array:');
+console.log(clonedArray);
+					    </code></pre>
+					</section>
 
 					<section class="center">
 
-						<h4>Rest parameter: push a bunch of function parameters on an array</h4>
+                        <h2>Rest operator: used on function arguments</h2>
+						<h3>Store the 'rest' of the parameters on an array</h3>
+						<h4>Should always be the last parameter of function</h4>
 						<pre><code data-trim class="javascript">
 function MultMax(multiplier, ...numbers) {
     return multiplier * numbers.reduce(
@@ -1132,16 +1148,36 @@ console.log(MultSum(3, 1, 2, 3));
 
 				<section>
 
+					<section class="center" data-background="img/01/destructuring.png">
+						<h1>destructuring</h1>
+					</section>
+
 					<section class="center">
 
-						<h4>Array destructuring</h4>
+						<h3>Array destructuring</h3>
 						<pre><code data-trim class="javascript">
-let dimensions = [1, 2, 3, 4, 5, 6, 7];
-let [width, height, depth, ...other] = dimensions;
+let dimensions = [1, 2, 3];
+let [width, height, depth] = dimensions;
 
-console.log (width);
-console.log (height);
-console.log (depth);
+console.log(`Width: ${width}`);
+console.log(`Height: ${height}`);
+console.log(`Depth: ${depth}`);
+						</code></pre>
+
+				    </section>
+
+					<section class="center">
+
+						<h3>You can also mix spread operator and destructuring!</h3>
+						<pre><code data-trim class="javascript">
+dimensions = [11, 22, 33, 4, 5, 6, 7];
+[width, height, depth, ...other] = dimensions;
+
+console.log(`Width: ${width}`);
+console.log(`Height: ${height}`);
+console.log(`Depth: ${depth}`);
+
+console.log('Other dimensions:')
 console.log(other);
 						</code></pre>
 
@@ -1149,7 +1185,7 @@ console.log(other);
 
 					<section class="center">
 
-						<h4>Object destructuring</h4>
+						<h3>Object destructuring</h3>
 						<pre><code data-trim class="javascript">
 let worker = {
     name: 'John',
@@ -1169,7 +1205,7 @@ console.log(`My name is ${name}, I'm ${age}
 
 						<h4>You can of course use variable names not matching object properties</h4>
 						<pre><code data-trim class="javascript">
-let worker = {
+worker = {
     name: 'John',
     age: 42,
     country: 'Spain'
@@ -1182,50 +1218,37 @@ console.log(`My name is ${firstname} and I live in ${living}`);
 
 				    </section>
 
-					<section class="center">
+					<section class="center" data-background="img/01/be-careful.jpg">
 
-						<h4>Be careful using existing vars!</h4>
-						<pre><code data-trim class="javascript">
-let worker = {
+						<h2>Be careful!</h2>
+
+                        <div class="fragment">
+						    <pre><code data-trim class="javascript">
+worker = {
     name: 'John',
     age: 42,
     country: 'Spain'
 };
 
-let name = 'Mary';
+let workerName = 'Mary';
 
-{name} = worker;
+console.log(`My name is ${workerName}`);
 
-console.log(`My name is ${name}`);
-						</code></pre>
-						<h4>This doesn't work!</h4>
+let {name: workerName} = worker;
 
-				    </section>
+console.log(`My name is ${workerName}`);
+						    </code></pre>
+						</div>
 
-					<section class="center">
-
-						<h4>You MUST use parenthesis!</h4>
-						<pre><code data-trim class="javascript">
-let worker = {
-    name: 'John',
-    age: 42,
-    country: 'Spain'
-};
-
-let name = 'Mary';
-
-({name} = worker);
-
-console.log(`My name is ${name}`);
-						</code></pre>
+						<h4 class="fragment">This doesn't work!</h4>
 
 				    </section>
 
 					<section class="center">
 
-						<h4>You can also use spread operator with objects!</h4>
+						<h4>You can also use mix spread operator and destructuring on objects!</h4>
 						<pre><code data-trim class="javascript">
-let worker = {
+worker = {
     name: 'John',
     age: 42,
     country: 'Spain'
@@ -1234,6 +1257,7 @@ let worker = {
 let {name, ...otherData} = worker;
 
 console.log(`My name is ${name}`);
+console.log('Interesting info about me:');
 console.log(otherData);
 						</code></pre>
 
@@ -1241,9 +1265,9 @@ console.log(otherData);
 
 					<section class="center">
 
-						<h4>You can also use default values</h4>
+						<h3>You can also use default values when destructuring</h3>
 						<pre><code data-trim class="javascript">
-let worker = {
+worker = {
     name: 'John',
     age: 42,
 };
@@ -1258,7 +1282,7 @@ console.log(`My name is ${name}, I'm ${age}
 
 					<section class="center">
 
-						<h4>And you can do this on function parameters too</h4>
+						<h3>And you can do this on function parameters too</h3>
 						<pre><code data-trim class="javascript">
 function drawBox({width, height, color = 'yellow'}) {
     console.log(`Drawing box, dimensions: ${width}x${height},
@@ -1270,6 +1294,31 @@ drawBox({width: 3, height: 5, color: 'blue'});
 						</code></pre>
 
 				    </section>
+
+				</section>
+
+				<section>
+
+					<section class="center" data-background="img/01/resources.jpeg">
+						<h1>Resources</h1>
+
+						<ul>
+							<li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">MDN, of course!</a></li>
+							<li><a href="https://javascript.info/" target="_blank">The Modern Javascript Tutorial</a></li>
+							<li><a href="http://exploringjs.com/es6/index.html" target="_blank">Exploring ES6</a></li>
+							<li><a href="https://leanpub.com/setting-up-es6" target="_blank">Setting up ES6 (Babel + Webpack)</a></li>
+							<li style="margin-top: 2em;"><a href="https://medium.freecodecamp.org/es5-to-esnext-heres-every-feature-added-to-javascript-since-2015-d0c255e13c6e" target="_blank">ES5 to ESNext — here’s every feature added to JavaScript since 2015</a></li>
+							<li><a href="https://kangax.github.io/compat-table/es6/" target="_blank">ES compat table</a></li>
+						</ul>
+
+					</section>
+
+					<section class="center" data-background="img/01/end.jpg">
+					</section>
+
+					<section class="center" data-background="img/01/questions.jpg">
+						<h1>Questions?</h1>
+					</section>
 
 				</section>
 
